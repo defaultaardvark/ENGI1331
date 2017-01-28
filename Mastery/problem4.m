@@ -5,8 +5,8 @@
 % Problem 1
 %%
 
-%Problem Statement: Find the difference in pressure [atm] using the gas using the Ideal Gas Law
-%and van der Waals equation given the volume [L], absolute temperature [K], and compensation values [-] of the gas.
+%Problem Statement: Find the difference in pressure [atm] using the Ideal Gas Law and van der Waals
+%equation given the volume [L], absolute temperature [K], and compensation values [-] of the gas.
 
 %input variables
 % gas = name of gas
