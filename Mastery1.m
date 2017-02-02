@@ -52,7 +52,7 @@ fprintf('The weight of the rod is %0.0f pounds-force. \n',weigh2rod);
 % Ravi Namuduri
 % 1543511
 % ENGI 1332 TTh 2:30-4
-% Problem 1
+% Problem 2
 %%
 %
 %Problem Statement: Find the time in seconds it takes a motor to raise a load given
@@ -100,8 +100,8 @@ fprintf('It will take %0.2f seconds for the %s motor to raise a %0.0fkg load %0.
 %%
 % Ravi Namuduri
 % 1543511
-% TTh 2:30 - 4
-% ENGI 1331
+% ENGI 1332 TTh 2:30-4
+% Problem 3
 %%
 %
 %problem statement: Find the energy required to boil a gallon of water [J], the power
@@ -167,7 +167,7 @@ fprintf('Burner efficiency for a %s stove: %0.1f%%\n', name, effic);
 % Ravi Namuduri
 % 1543511
 % ENGI 1332 TTh 2:30-4
-% Problem 1
+% Problem 4
 %%
 
 %Problem Statement: Find the difference in pressure [atm] using the gas using the Ideal Gas Law
