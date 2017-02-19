@@ -14,19 +14,22 @@ load('P2_ColorGuide.mat');
 resist = menu('Color Code or Resistance', 'Color Code', 'Resistance');
 
 if resist == 1
-
+  stripes = input('Enter color digits as cell array: ');
+  
 
 elseif resist == 2
   ohms = input('Enter resistance in ohms as vector: ');
   if ohms(1, 3:length(ohms)) ~= 0
     error('Invalid resistance. Terminating');
   else
-    color1 = cell((length(ohms)):0);
+    color1 = cell(2:0);
     for dig1 = 1:2
       color1{dig1} = [ColorCode{1,(ohms(1,dig1)+1)} dig1];
     end
-    mult = length(ohms(1,:))-2;
-      color1{mult} = [Multiplier{1,mult} mult];
+    color2 = cell(1:0);
+    mult = length(ohms(1,:))-1;
+      color2{mult} = [Multiplier{1,mult} mult];
+    color3 = {color1{:} color2{length(color2)}};
   end
 
 
