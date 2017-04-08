@@ -13,7 +13,7 @@ freqency = [];
 status = [];
 entrynum = 0;
 while value_again == 1;
-  while Test(1) > v_range(1) || Test(1) < v_range(2)
+  while Test(1) <= v_range(1) || Test(1) >= v_range(2)
     Test = input('Input Voltage [V] and Frequency [Hz]: ');
     tstcount = 1;
       while size(Test) ~= [1 2]
@@ -23,8 +23,8 @@ while value_again == 1;
           test_txt = sprintf('Dimensions not correct. Please try again: ');
           Test = input(test_txt);
           tstcount = tstcount + 1;
-      end
-      if Test(1) > v_range(1) || Test(1) < v_range(2)
+        end
+      if Test(1) <= v_range(1) || Test(1) >= v_range(2)
         warning('Voltage outside of range. Restarting input.');
         %v_txt = sprintf('Voltage out of range. Input voltage between %0.0f and %0.0f: ',v_range(1),v_range(2));
         %v_Test = input(v_txt);
@@ -34,8 +34,8 @@ while value_again == 1;
     while Test(2) < f_range(1) || Test(2) > f_range(2)
       f_txt = sprintf('Frequency out of range. Input frequency between %0.0f and %0.0f: ',f_range(1), f_range(2));
       f_test = input(f_txt);
+      Test(2) = f_test;
     end
-    Test(2) = f_test;
   end
 
   % graph test
