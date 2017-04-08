@@ -4,15 +4,16 @@ close all
 
 v_range = [0 15];
 f_range = [0 10000];
-Test = [v_range(1) f_range(1)];
 value_again = 1;
 
 entry = [];
 voltage = [];
-freqency = [];
+frequency = [];
 status = [];
 entrynum = 0;
+zone = 0;
 while value_again == 1;
+  Test = [v_range(1) f_range(1)];
   while Test(1) <= v_range(1) || Test(1) >= v_range(2)
     Test = input('Input Voltage [V] and Frequency [Hz]: ');
     tstcount = 1;
@@ -151,8 +152,6 @@ while value_again == 1;
       end
     end
   %defaults to reject zone
-  else
-    zone = 0;
   end
   entrynum = entrynum + 1;
   entry = [entry entrynum];
@@ -166,11 +165,10 @@ fprintf('Entry #\t|\tVoltage [V]\t|\tFrequency [Hz]\t|\tStatus\n');
 for curr = 1:size(entry, 2)
   fprintf('\t%0.0f\t\t%0.0f\t\t%0.0f\t\t',entry(curr),voltage(curr),frequency(curr));
   if status(curr) == 1
-    loc = 'A';
+    fprintf('Accept Device in Zone A\n');
   elseif status(curr) == 2
-    loc = 'B';
-  else
+    fprintf('Accept Device in Zone B\n');
+  elseif status(curr) == 0
     fprintf('Reject Device\n');
   end
-  fprintf('Accept Device in Zone %s\n',loc);
 end
