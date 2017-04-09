@@ -110,9 +110,6 @@ while value_again == 1;
     if Test(1) == linrngx(curr)
       if Test(2) <= linrngy(curr) && Test(2) >= linrngy(1)
         zone = 1;
-        plot(Test(1),Test(2),'.r','MarkerSize',50);
-        ptcnts = num2str(ptcnt);
-        text(Test(1),Test(2),ptcnts,'HorizontalAlignment','Center');
       end
     end
   end
@@ -121,9 +118,6 @@ while value_again == 1;
   if Test(1) >= 0 && Test(1) <= 6
     if Test(2) <= 7500 && Test(2) >= 6000
       zone = 1;
-      plot(Test(1),Test(2),'.r','MarkerSize',50);
-      ptcnts = num2str(ptcnt);
-      text(Test(1),Test(2),ptcnts,'HorizontalAlignment','Center');
     end
   end
 
@@ -133,9 +127,6 @@ while value_again == 1;
     if Test(1) == f_fitx(curr)
       if Test(2) >= f_fit(curr) && Test(2) <= 6000
         zone = 1;
-        plot(Test(1),Test(2),'.r','MarkerSize',50);
-        ptcnts = num2str(ptcnt);
-        text(Test(1),Test(2),ptcnts,'HorizontalAlignment','Center');
       end
     end
   end
@@ -146,9 +137,6 @@ while value_again == 1;
   if Test(1) >= 8 && Test(1) <= 15
     if Test(2) >= 0 && Test(2) <= 3000
       zone = 2;
-      plot(Test(1),Test(2),'.r','MarkerSize',50);
-      ptcnts = num2str(ptcnt);
-      text(Test(1),Test(2),ptcnts,'HorizontalAlignment','Center');
     end
   end
 
@@ -156,9 +144,6 @@ while value_again == 1;
   if Test(1) >= 12 && Test(1) <= 15
     if Test(2) >= 3000 && Test(2) <= 7500
       zone = 2;
-      plot(Test(1),Test(2),'.r','MarkerSize',50);
-      ptcnts = num2str(ptcnt);
-      text(Test(1),Test(2),ptcnts,'HorizontalAlignment','Center');
     end
   end
   %section 3
@@ -166,9 +151,6 @@ while value_again == 1;
     for curr = 1:size(f_exp, 2)-1
       if Test(2) >= 3000 && Test(2) <= f_exp(curr)% && Test(2) <= f_exp(curr+1)
         zone = 2;
-        plot(Test(1),Test(2),'.r','MarkerSize',50);
-        ptcnts = num2str(ptcnt);
-        text(Test(1),Test(2),ptcnts,'HorizontalAlignment','Center');
       end
     end
   end
@@ -176,10 +158,13 @@ while value_again == 1;
   %defaults to reject zone
   if zone == 0
     reject = 0;
-    plot(Test(1),Test(2),'.r','MarkerSize',50);
-    ptcnts = num2str(ptcnt);
-    text(Test(1),Test(2),ptcnts,'HorizontalAlignment','Center');
   end
+
+  %Plotting point
+  plot(Test(1),Test(2),'.r','MarkerSize',50);
+  ptcnts = num2str(ptcnt);
+  text(Test(1),Test(2),ptcnts,'HorizontalAlignment','Center');
+
   %Data storage and enter again?
   entrynum = entrynum + 1;
   entry = [entry entrynum];
