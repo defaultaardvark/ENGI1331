@@ -62,7 +62,61 @@ fzero() %<finds a zero of a function
 x = fzero(@fname,x0);
 x0 = starting point for function to begin searching
 [xL xR] x value range with fname(xL) being opposite in sign from fname(xR)
+@fname, x0, [], p1, p2,...)
+p1 and p2 are additional variables required by fname
 
 fminbnd() %finds min of a function
 quad()
 integral()
+--------------------------------------------------------------------------------
+%% intersection of curves
+clc
+clear
+close all
+
+x = [-2:.01:2];
+
+[y] = f(x);
+[z] = g(x);
+figure
+plot(x,y);
+hold on
+plot(x,z);
+
+[w] = h(x);
+[x1] = fzero(@h,-1.5);
+
+%function (f)
+function[y] = f(x)
+y = x.^2 - 1;
+end
+
+%function (g)
+function[z] = f(x)
+z = exp(x/5);
+end
+
+%function (h)
+function[w] = h(x)
+w = f(x) - g(x);
+end
+
+%% integration
+%find area under a straight line
+m = 5;
+b = 7;
+
+%option 1
+t1 = @(t)m.*t+b;
+[int1] = integral(t1,0,50); %interval of 0 to 50
+
+%option 2
+[int2] = integral(@(t)m.*t+b,0,50);
+
+%option 3
+[int3] = my_int(m,b);
+%% function my_int
+function[value] = my_int(m,b)
+y = @(t)m.*t+b;
+value = integral(y,0,50);
+end
