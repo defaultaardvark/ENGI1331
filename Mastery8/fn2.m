@@ -1,3 +1,3 @@
-function[y2] = fn1(m,n,t)
-y2 = m*t + n
+function[y2] = fn1(t,m,n)
+y2 = m*t + n;
 end

@@ -1,3 +1,3 @@
-function[y3] = fn1(z,w,t)
-y2 = z*t + w
+function[y3] = fn1(t,z,w)
+y3 = z*t + w;
 end

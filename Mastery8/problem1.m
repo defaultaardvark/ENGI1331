@@ -1,3 +1,5 @@
+%% Ravi Namuduri 1543511 TTh 2:30-4
+
 clc
 clear
 close all
@@ -12,24 +14,11 @@ z = a_dat(:,6);
 w = a_dat(:,7);
 
 %y1, y2, y3
+%program works under the assumption that fn1 is a parabola and fn2 and fn3 are lines
+a_inc = input('Increment value for area: ');
 
-%a_inc = input('Increment value for area: ');
-
-cnt = 0;
-z_1 = [];
-while cnt ~= 2 && y1 == 0
-  ext = 1;
-  for curr = 0:0.01:ext
-    [y1] = fn1(a,b,c,curr)
-    if y1 == 0
-      z_1 = [z_1 curr];
-      break;
-    end
-    ext = ext + 1;
-  end
-  cnt = cnt + 1;
+fprintf('\tArea Fn2\tLH\t\tRH\t\tMP\t\tArea Fn3\tLH\t\tRH\t\tMP\t\tLeft Edge\tRight Edge\n');
+for curr = 1:size(a_dat,1)
+  [a2, a3, l2, l3, r2, r3, int2, int3, ly, ry] = Compute_area(a(curr),b(curr),c(curr),m(curr),n(curr),z(curr),w(curr),a_inc);
+  fprintf('\t%0.2f\t\t%0.2f\t%0.2f\t%0.2f\t%0.2f\t\t%0.2f\t%0.2f\t%0.2f\t\t%s\t\t%s\n', int2, l2, r2, a2, int3, l3, r3, a3, ly, ry);
 end
-
-%[y1] = fn1(a,b,c);
-%[y2] = fn2(m,n);
-%[y3] = fn3(z,w);
